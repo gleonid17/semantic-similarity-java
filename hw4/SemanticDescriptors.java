@@ -9,7 +9,7 @@ public class SemanticDescriptors {
         this.map = map;
     }
 
-    public HashMap<String, HashMap<String, Integer>> getMap(){
+    public final HashMap<String, HashMap<String, Integer>> getMap(){
         return this.map;
     }
 

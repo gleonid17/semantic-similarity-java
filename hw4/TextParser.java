@@ -2,7 +2,7 @@ package hw4;
 
 import java.util.ArrayList;
 
-class TextParser implements TextOperations{
+public class TextParser implements TextOperations{
     private String text;
 
     public TextParser(String text) {

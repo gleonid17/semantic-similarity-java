@@ -9,7 +9,7 @@ public class SimilarityCalculator {
          */ 
         return 0;
         //evala return 0 gia na min mou vazei error 
-    } 
+    }
     
     private static double sigmaNotation(int startValue, int endValue, HashMap<String, Integer> vec1, HashMap<String, Integer> vec2, int parameters) {
         /**

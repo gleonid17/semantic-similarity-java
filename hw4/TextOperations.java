@@ -7,3 +7,11 @@ public interface TextOperations {
 
     public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames);
 }
+
+
+
+
+
+
+
+//ena akyro comment lol

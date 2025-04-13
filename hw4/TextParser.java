@@ -13,7 +13,7 @@ public class TextParser implements TextOperations{
 
     private ArrayList<String> tokenizerToList(String delim){
         StringTokenizer tokenizer = new StringTokenizer(this.text,delim);
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>(tokenizer.countTokens());
         for (int i = 0; i < tokenizer.countTokens(); i++) {
             list.add(tokenizer.nextToken().toString().trim());
         }
@@ -23,7 +23,7 @@ public class TextParser implements TextOperations{
     @Override
     public ArrayList<ArrayList<String>> getTextAsList(String text) {
         ArrayList<ArrayList<String>> list = new ArrayList<>();
-        
+
     }
 
     @Override

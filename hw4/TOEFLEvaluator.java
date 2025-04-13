@@ -1,7 +1,7 @@
 package hw4;
 
 public class TOEFLEvaluator {
-    SemanticDescriptors map;   
+    private SemanticDescriptors map;   
     
     public TOEFLEvaluator(SemanticDescriptors map) {
         this.map = map;

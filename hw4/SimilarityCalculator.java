@@ -1,18 +1,41 @@
 package hw4;
 
+/**
+ * This class is a Calculator for all the equations that are needed to Calculate the similarity between two vectors. 
+ * 
+ * @author George Leonidou and Andreas Christian Mylonas
+ * @version 1.0
+ * @since 13/04/2025
+ */
+
 import java.util.HashMap;
 
 public class SimilarityCalculator {
+    /**
+     * Calculates the cosine similarity between two vectors. 
+     * @param vec1 The first vector.
+     * @param vec2 The second vector.
+     * @return The cosine similarity between the two vectors.
+     */
     public double cosineSimilarity(HashMap<String, Integer> vec1, HashMap<String, Integer> vec2) {
         double dotPoroduct = 0;
-        for (String key : vec1.keySet()) {
-            if (vec2.containsKey(key)) {
-                dotPoroduct += vec1.get(key) * vec2.get(key);
+        try {
+            for (String key : vec1.keySet()) {
+                if (vec2.containsKey(key)) {
+                    dotPoroduct += vec1.get(key) * vec2.get(key);
+                }
             }
+            return dotPoroduct / (calculateNorm(vec1) * calculateNorm(vec2));
+        } catch (Exception e) {
+            return -1;
         }
-        return dotPoroduct / (calculateNorm(vec1) * calculateNorm(vec2));
     }
     
+    /**
+     * Calculates the norm of a vector.
+     * @param vec The vector to calculate the norm for.
+     * @return The norm of the vector.
+     */
     private static double calculateNorm(HashMap<String, Integer> vec) {
         double norm = 0;
         for (String key : vec.keySet()) {

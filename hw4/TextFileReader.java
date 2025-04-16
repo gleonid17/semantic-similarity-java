@@ -4,7 +4,7 @@ package hw4;
  * This class is responsible for reading a text file and returning its content as a string.
  * It handles any IO exceptions that may occur during the file reading process.
  * 
- * @author George Leonidou and Andreas Christian Mylonas    
+ * @author George Leonidou and Andreas Kristian Mylonas    
  * @version 1.0 
  * @since 13/04/2025
  */

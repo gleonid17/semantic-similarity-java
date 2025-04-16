@@ -3,7 +3,7 @@ package hw4;
  * This class is a Parser for the text. 
  * It implements the TextOperations interface and provides methods to convert text to a list of sentences and words.
  * 
- * @author George Leonidou and Andreas Christian Mylonas    
+ * @author George Leonidou and Andreas Kristian Mylonas    
  * @version 1.0 
  * @since 13/04/2025
  */
@@ -48,11 +48,11 @@ public class TextParser implements TextOperations{
     @Override
     public ArrayList<ArrayList<String>> convertTextToList() {
         ArrayList<ArrayList<String>> listOfLists = new ArrayList<>();
-        ArrayList<String> sentenses = tokenizerToList(this.text,".?!");
-        for (int i = 0; i < sentenses.size(); i++) {
-            listOfLists.add(tokenizerToList(sentenses.get(i), " ,.-:\";'"));
+        ArrayList<String> sentences = tokenizerToList(this.text,".?!");
+        for (int i = 0; i < sentences.size(); i++) {
+            listOfLists.add(tokenizerToList(sentences.get(i), " ,.-:\";'"));
         }
-        this.numberOfSentences = sentenses.size();
+        this.numberOfSentences = sentences.size();
         return listOfLists;
     }
 

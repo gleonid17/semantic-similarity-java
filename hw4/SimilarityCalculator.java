@@ -3,7 +3,7 @@ package hw4;
 /**
  * This class is a Calculator for all the equations that are needed to Calculate the similarity between two vectors. 
  * 
- * @author George Leonidou and Andreas Christian Mylonas
+ * @author George Leonidou and Andreas Kristian Mylonas
  * @version 1.0
  * @since 13/04/2025
  */

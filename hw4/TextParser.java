@@ -22,7 +22,7 @@ public class TextParser implements TextOperations{
      * @param text The text to be parsed.
      */
     public TextParser(String text) {
-        this.text = text;
+        this.text = text.toLowerCase();
         this.numberOfSentences = 0;
     }       
 
@@ -36,10 +36,12 @@ public class TextParser implements TextOperations{
      */
     @Override
     public ArrayList<ArrayList<String>> convertTextToList() {
-        ArrayList<ArrayList<String>> listOfLists = new ArrayList<>();
-        ArrayList<String> sentences = tokenizerToList(this.text,".?!");
+        ArrayList<ArrayList<String>> listOfLists = new ArrayList<ArrayList<String>>();
+        StringTokenizer tokenizer = new StringTokenizer(this.text, ".?!"); 
+        ArrayList<String> sentences = tokenizerToList(tokenizer);
         for (int i = 0; i < sentences.size(); i++) {
-            listOfLists.add(tokenizerToList(sentences.get(i), " ,.-:\";'"));
+            StringTokenizer tempTokenizer = new StringTokenizer(sentences.get(i), " ,.-:\";'");
+            listOfLists.add(tokenizerToList(tempTokenizer));
         }
         this.numberOfSentences = sentences.size();
         return listOfLists;
@@ -71,33 +73,6 @@ public class TextParser implements TextOperations{
         this.numberOfSentences = listOfLists.size();   
         return listOfLists;
     }
-
-    /**
-     * This method takes a string and a delimiter,
-     * splits the string into tokens based on the delimiter and stores them in an ArrayList.
-     * 
-     * @param text The string to be tokenized.
-     * @param delim The delimiter used to split the string.
-     * @return An ArrayList of String tokens.
-     */
-    private ArrayList<String> tokenizerToList(String text, String delim){
-        text = text.toLowerCase();
-        StringTokenizer tokenizer = new StringTokenizer(text,delim);
-        ArrayList<String> list = new ArrayList<String>(tokenizer.countTokens());
-        for (int i = 0; i < tokenizer.countTokens(); i++) {
-            list.add(tokenizer.nextToken().toString().trim());
-        }
-        /*
-         * while (tokenizer.hasMoreTokens()) {
-         *     list.add(tokenizer.nextToken().toString().trim());
-         * }
-         * 
-         * dear collegue i suggest the commented code, since the integer
-         * 'i' is not used anywhere else in the branch.
-         */
-        return list;       
-    }
-
     /**
      * This method returns the number of sentences in the text.
      * 
@@ -106,4 +81,22 @@ public class TextParser implements TextOperations{
     public Integer getNumberOfSentences() {
         return this.numberOfSentences;
     }
+    
+    /**
+     * This method takes a string and a delimiter,
+     * splits the string into tokens based on the delimiter and stores them in an ArrayList.
+     * 
+     * @param text The string to be tokenized.
+     * @param delim The delimiter used to split the string.
+     * @return An ArrayList of String tokens.
+     */
+    private ArrayList<String> tokenizerToList(StringTokenizer tokenizer){
+        ArrayList<String> list = new ArrayList<String>(tokenizer.countTokens());
+        while (tokenizer.hasMoreTokens()) {
+            list.add(tokenizer.nextToken().toString().trim());
+        }
+        return list;       
+    }
+
+    
 }

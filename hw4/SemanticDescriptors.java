@@ -13,7 +13,7 @@ import java.util.*;
  * @since 17/04/2025
  * @see HashMap
  */
-public class SemanticDescriptors extends HashMap {
+public class SemanticDescriptors extends HashMap<Object, Object> {
     private HashMap<String, HashMap<String, Integer>> map;
 
     /**

@@ -22,7 +22,11 @@ public class TextParser implements TextOperations{
      */
     public TextParser(String text) {
         this.text = text.toLowerCase();
-    }       
+    }
+    
+    public TextParser(){
+        this("");
+    }
 
     /**
      * This method converts the text into a list of sentences,
@@ -51,19 +55,13 @@ public class TextParser implements TextOperations{
      */
     @Override
     public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames) { 
-        /*
-         * i think this method should be rewritten to reuse the convertTextToList method.
-         */
         ArrayList<ArrayList<String>> listOfLists = new ArrayList<ArrayList<String>>();
         for (int i = 0; i < fileNames.size(); i++) {
-            /*
-             * i suggest textParser be named to "parse" for simplicity and clarity.
-             */
-            TextParser tempParser = new TextParser(new TextFileReader(fileNames.get(i)).readFile());
+            TextParser tempParser = new TextParser(TextFileParser.readFile(fileNames.get(i)));
+            if (tempParser.text == null)
+                continue; // Skip if the file could not be read
             ArrayList<ArrayList<String>> list = tempParser.convertTextToList();
-            for (int j = 0; j < list.size(); j++) {
-                listOfLists.add(list.get(j));
-            }
+            listOfLists.addAll(list);
         }
         return listOfLists;
     }

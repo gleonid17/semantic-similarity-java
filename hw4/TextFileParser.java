@@ -14,19 +14,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
-public class TextFileReader {
-    private String filename;
+public class TextFileParser extends TextParser {
 
-    public TextFileReader(String filename) {
-        this.filename = filename;
-    }
-
-    public String readFile() {
+    public static String readFile(String fileName) {
         StringBuilder contentBuilder = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(this.filename))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line = reader.readLine();
             while (line != null) {
                 contentBuilder.append(line);
+                contentBuilder.append("\n");
+                line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
             System.out.println("File was not found or could not be opened.");

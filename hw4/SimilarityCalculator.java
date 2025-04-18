@@ -19,7 +19,7 @@ public class SimilarityCalculator { //i think we should change this class into a
      * @return double number between 0 and 1 representing cosine similarity between the two vectors,
      * returns -1 if similarity could not be calculated.
      */
-    public double cosineSimilarity(HashMap<String, Integer> vec1, HashMap<String, Integer> vec2) {
+    public static double cosineSimilarity(HashMap<String, Integer> vec1, HashMap<String, Integer> vec2) {
         double dotPoroduct = 0;
         try {
             for (String key : vec1.keySet()) {

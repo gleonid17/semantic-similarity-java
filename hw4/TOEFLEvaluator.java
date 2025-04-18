@@ -1,8 +1,14 @@
 package hw4;
 
+import java.util.ArrayList;
+
 public class TOEFLEvaluator {
     private SemanticDescriptors map;   
     
+    /**
+     * Constructor for the TOEFLEvaluator class
+     * @param map the semantic descriptors map to be used for evaluation
+     */
     public TOEFLEvaluator(SemanticDescriptors map) {
         this.map = map;
     }
@@ -28,7 +34,7 @@ public class TOEFLEvaluator {
      * @param choices array of words to be compared with the word
      * @return the most similar word in the choices array
      */
-    public String mostSimilarWord(String word, String[] choices) {
+    public String mostSimilarWord(String word, ArrayList<String> choices) {
         
         return (new String());
     }

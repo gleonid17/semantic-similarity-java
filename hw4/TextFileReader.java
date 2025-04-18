@@ -10,17 +10,27 @@ package hw4;
  */
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.FileNotFoundException;
 
 public class TextFileReader {
     private String filename;
 
+    /**
+     * Constructor for the TextFileReader class
+     * Initializes the filename to be read.
+     * @param filename
+     */
     public TextFileReader(String filename) {
         this.filename = filename;
     }
 
+    /**
+     * Reads the content of the file specified by the filename.
+     * It uses a BufferedReader to read the file line by line and appends each line to a StringBuilder.
+     * @return The content of the file as a string, or null if an error occurs. 
+     */
     public String readFile() {
         StringBuilder contentBuilder = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(this.filename))) {

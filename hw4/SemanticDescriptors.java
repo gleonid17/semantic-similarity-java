@@ -24,11 +24,12 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
      * @param map The HashMap containing the semantic relations between words.
      */
     protected SemanticDescriptors(HashMap<String, HashMap<String, Integer>> map) {
+        super(map);
         this.map = map;
     }
 
     protected SemanticDescriptors() {
-        this.map = null;
+        this.map = new HashMap<>();
     }
 
     /**

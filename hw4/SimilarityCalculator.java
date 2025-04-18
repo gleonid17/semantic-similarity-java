@@ -10,12 +10,14 @@ package hw4;
 
 import java.util.HashMap;
 
-public class SimilarityCalculator {
+public class SimilarityCalculator { //i think we should change this class into an abstract class
     /**
-     * Calculates the cosine similarity between two vectors. 
+     * Calculates the cosine similarity between two vectors.
+     * 
      * @param vec1 The first vector.
      * @param vec2 The second vector.
-     * @return The cosine similarity between the two vectors.
+     * @return double number between 0 and 1 representing cosine similarity between the two vectors,
+     * returns -1 if similarity could not be calculated.
      */
     public double cosineSimilarity(HashMap<String, Integer> vec1, HashMap<String, Integer> vec2) {
         double dotPoroduct = 0;
@@ -26,7 +28,7 @@ public class SimilarityCalculator {
                 }
             }
             return dotPoroduct / (calculateNorm(vec1) * calculateNorm(vec2));
-        } catch (Exception e) {
+        } catch (Exception e) {//WHAT EXCEPTION DO WE WANT TO CATCH HERE?
             return -1;
         }
     }

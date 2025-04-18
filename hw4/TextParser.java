@@ -53,7 +53,10 @@ public class TextParser implements TextOperations{
      * @return An ArrayList of ArrayLists, where each inner ArrayList contains the words of a sentence.
      */
     @Override
-    public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames) {
+    public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames) { 
+        /*
+         * i think this method should be rewritten to reuse the convertTextToList method.
+         */
         ArrayList<ArrayList<String>> listOfLists = new ArrayList<ArrayList<String>>();
         for (int i = 0; i < fileNames.size(); i++) {
             /*

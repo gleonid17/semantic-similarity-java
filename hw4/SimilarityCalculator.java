@@ -10,7 +10,7 @@ package hw4;
 
 import java.util.HashMap;
 
-public class SimilarityCalculator { //i think we should change this class into an abstract class
+public abstract class SimilarityCalculator {
     /**
      * Calculates the cosine similarity between two vectors.
      * 
@@ -28,7 +28,7 @@ public class SimilarityCalculator { //i think we should change this class into a
                 }
             }
             return dotPoroduct / (calculateNorm(vec1) * calculateNorm(vec2));
-        } catch (Exception e) {//WHAT EXCEPTION DO WE WANT TO CATCH HERE?
+        } catch (Exception e) {
             return -1;
         }
     }
@@ -42,7 +42,7 @@ public class SimilarityCalculator { //i think we should change this class into a
         double norm = 0;
         for (String key : vec.keySet()) {
             norm += Math.pow(vec.get(key), 2);
-        }   
+        }
         return Math.sqrt(norm);
     }
 }

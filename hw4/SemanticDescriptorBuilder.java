@@ -24,6 +24,9 @@ public class SemanticDescriptorBuilder extends SemanticDescriptors {
      * @return a SemanticDescriptors object containing the semantic relations between words
      */
     public static final SemanticDescriptors listToMap(ArrayList<ArrayList<String>> textArrayList) {
+    if (textArrayList == null || textArrayList.isEmpty()) {
+        return new SemanticDescriptors(new HashMap<>());
+    }
     HashMap<String, HashMap<String, Integer>> map = new HashMap<>();
     for (ArrayList<String> sentence : textArrayList){
         for (String word : sentence) {

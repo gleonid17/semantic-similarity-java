@@ -38,11 +38,27 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
      * @param word2 the second word
      * @return the number of times word1 and word2 co-occur in the same sentence
      */
-    public Integer getRelationOccurance(String word1, String word2) {
+    public Integer getBinaryRelation(String word1, String word2) {
         if (map.containsKey(word1) && map.get(word1).containsKey(word2)) {
             return map.get(word1).get(word2);
         }
         return 0;
+    }
+
+    public double getSimilarityScore(String word1, String word2) {
+        if (word1 == null || word2 == null) {
+            return -1;
+        }
+        if (word1.equals(word2)) {
+            return 1.0;
+        }
+        //if one or both of the words are not in the map, return -1
+        if (!(map.containsKey(word1) && map.containsKey(word2))) {
+            return -1;
+        }
+        HashMap<String, Integer> vec1 = map.get(word1);
+        HashMap<String, Integer> vec2 = map.get(word2);
+        return SimilarityCalculator.cosineSimilarity(vec1, vec2);
     }
 
     //add more methods if needed

@@ -3,7 +3,7 @@ package hw4;
 import java.util.*;
 
 /**
- * This class is a model for semantic descriptors, 
+ * This class is a model for semantic descriptors,
  * it extends the HashMap class so one can call the methods of HashMap
  * directly through a SemanticDescriptors object along with adding new methods.
  * It is used to store the semantic relations between words in a text.
@@ -18,7 +18,8 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
 
     /**
      * Constructs a SemanticDescriptors object with a given HashMap,
-     * This constructor is protected to ensure that the class is not instantiated directly
+     * This constructor is protected to ensure that the class is not instantiated
+     * directly
      * but only through a builder subclass.
      * 
      * @param map The HashMap containing the semantic relations between words.
@@ -34,6 +35,7 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
 
     /**
      * Returns the amount of times word1 and word2 co-occur in the same sentence.
+     * 
      * @param word1 the first word
      * @param word2 the second word
      * @return the number of times word1 and word2 co-occur in the same sentence
@@ -52,7 +54,7 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
         if (word1.equals(word2)) {
             return 1.0;
         }
-        //if one or both of the words are not in the map, return -1
+        // if one or both of the words are not in the map, return -1
         if (!(map.containsKey(word1) && map.containsKey(word2))) {
             return -1;
         }
@@ -61,6 +63,6 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
         return SimilarityCalculator.cosineSimilarity(vec1, vec2);
     }
 
-    //add more methods if needed
+    // add more methods if needed
 
 }

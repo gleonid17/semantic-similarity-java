@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 import java.io.*;
 
 public class TOEFLEvaluator {
-    private SemanticDescriptors map;   
-    
+    private SemanticDescriptors map;
+
     /**
      * Constructor for the TOEFLEvaluator class
      * 
@@ -16,48 +16,48 @@ public class TOEFLEvaluator {
         this.map = map;
     }
 
-     /**
-         * calls mostSimilarWord for each line in the file
-         * saves the answer given by method
-         * calculates the success rate of the algorithm
-         * creates an output text file with the results
-         * 
-         * @param fileName the name of the file to be processed
-         * @return void
-         */
-    public void runSimilarityTest(String fileName){
+    /**
+     * calls mostSimilarWord for each line in the file
+     * saves the answer given by method
+     * calculates the success rate of the algorithm
+     * creates an output text file with the results
+     * 
+     * @param fileName the name of the file to be processed
+     * @return void
+     */
+    public void runSimilarityTest(String fileName) {
         // opening input and output streams
-       BufferedReader fileIn;
-       PrintWriter fileOut = null; 
-       try{
-        fileIn = new BufferedReader(new FileReader(fileName));
-       } catch (FileNotFoundException e) {
-           System.out.println("File was not found or could not be opened.");
-           return;
-       }
-       try{
-        fileOut = new PrintWriter(new FileOutputStream("Results.txt"));
+        BufferedReader fileIn;
+        PrintWriter fileOut = null;
+        try {
+            fileIn = new BufferedReader(new FileReader(fileName));
+        } catch (FileNotFoundException e) {
+            System.out.println("File was not found or could not be opened.");
+            return;
+        }
+        try {
+            fileOut = new PrintWriter(new FileOutputStream("Results.txt"));
         } catch (FileNotFoundException e) {
             System.out.println("Output file could not be created.");
             return;
         }
 
-         // reading the first line of the file
-       String line = null;
-       try{
-        line = fileIn.readLine();
-       } catch (IOException e) {
-           System.out.println("Error reading file.");
-           return;
-       }
-       int totalQuestions = 0;
-       int rightChoices = 0;
-       while (line != null) {
-           StringTokenizer lineTokens = new StringTokenizer(line, " ");
-           if (lineTokens.countTokens() < 4) {
-               System.out.println("Error: line does not contain enough choices.");
-               return;
-           }
+        // reading the first line of the file
+        String line = null;
+        try {
+            line = fileIn.readLine();
+        } catch (IOException e) {
+            System.out.println("Error reading file.");
+            return;
+        }
+        int totalQuestions = 0;
+        int rightChoices = 0;
+        while (line != null) {
+            StringTokenizer lineTokens = new StringTokenizer(line, " ");
+            if (lineTokens.countTokens() < 4) {
+                System.out.println("Error: line does not contain enough choices.");
+                return;
+            }
             String word = lineTokens.nextToken();
             String correctAnswer = lineTokens.nextToken();
             ArrayList<String> choices = new ArrayList<String>(5);
@@ -65,7 +65,7 @@ public class TOEFLEvaluator {
                 String choice = lineTokens.nextToken();
                 choices.add(choice);
             }
-            fileOut.print("Question: "+ totalQuestions + ": ");
+            fileOut.print("Question: " + totalQuestions + ": ");
             writeQuestion(fileOut, word, choices);
             String algorithmAnswer = mostSimilarWord(word, choices);
             writeResult(fileOut, algorithmAnswer, correctAnswer);
@@ -73,22 +73,22 @@ public class TOEFLEvaluator {
                 rightChoices++;
             }
             totalQuestions++;
-       }
-       double successRate = (double) rightChoices / totalQuestions * 100;
-       fileOut.println("Success rate: " + successRate + "%");
-       try {
-        fileIn.close();
-       } catch (IOException e) {
-           System.out.println("Error closing input file.");
-       }
-       fileOut.close();
+        }
+        double successRate = (double) rightChoices / totalQuestions * 100;
+        fileOut.println("Success rate: " + successRate + "%");
+        try {
+            fileIn.close();
+        } catch (IOException e) {
+            System.out.println("Error closing input file.");
+        }
+        fileOut.close();
     }
 
     /**
      * approximates the most similar word in the choices array
      * in relation to the parameter 'word'
      * 
-     * @param word word to be examined
+     * @param word    word to be examined
      * @param choices array of words to be compared with the word
      * @return the most similar word in the choices array
      */
@@ -114,7 +114,7 @@ public class TOEFLEvaluator {
     }
 
     private void writeQuestion(PrintWriter fileOut, String word, ArrayList<String> choices) {
-        fileOut.println(word+":");
+        fileOut.println(word + ":");
         for (String choice : choices) {
             fileOut.printf("%15s", choice);
             fileOut.println();

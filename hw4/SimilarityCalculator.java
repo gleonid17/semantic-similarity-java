@@ -16,8 +16,9 @@ public abstract class SimilarityCalculator {
      * 
      * @param vec1 The first vector.
      * @param vec2 The second vector.
-     * @return double number between 0 and 1 representing cosine similarity between the two vectors,
-     * returns -1 if similarity could not be calculated.
+     * @return double number between 0 and 1 representing cosine similarity between
+     *         the two vectors,
+     *         returns -1 if similarity could not be calculated.
      */
     public static double cosineSimilarity(HashMap<String, Integer> vec1, HashMap<String, Integer> vec2) {
         if (vec1 == null || vec2 == null) {
@@ -42,9 +43,10 @@ public abstract class SimilarityCalculator {
             return -1;
         }
     }
-    
+
     /**
      * Calculates the norm of a vector.
+     * 
      * @param vec The vector to calculate the norm for.
      * @return The norm of the vector.
      */

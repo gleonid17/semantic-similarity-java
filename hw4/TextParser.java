@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- * This class is a Parser for the text. 
- * It implements the TextOperations interface and provides methods to convert text to a list of sentences and words.
+ * This class is a Parser for the text.
+ * It implements the TextOperations interface and provides methods to convert
+ * text to a list of sentences and words.
  * 
- * @author George Leonidou and Andreas Kristian Mylonas    
- * @version 1.0 
+ * @author George Leonidou and Andreas Kristian Mylonas
+ * @version 1.0
  * @since 13/04/2025
  */
-public class TextParser implements TextOperations{
+public class TextParser implements TextOperations {
     private final String text;
 
     /**
@@ -23,8 +24,8 @@ public class TextParser implements TextOperations{
     public TextParser(String text) {
         this.text = text.toLowerCase();
     }
-    
-    public TextParser(){
+
+    public TextParser() {
         this("");
     }
 
@@ -32,12 +33,13 @@ public class TextParser implements TextOperations{
      * This method converts the text into a list of sentences,
      * where each sentence is further tokenized into words.
      * 
-     * @return An ArrayList of ArrayLists, where each inner ArrayList contains the words of a sentence.
+     * @return An ArrayList of ArrayLists, where each inner ArrayList contains the
+     *         words of a sentence.
      */
     @Override
     public ArrayList<ArrayList<String>> convertTextToList() {
         ArrayList<ArrayList<String>> listOfLists = new ArrayList<ArrayList<String>>();
-        StringTokenizer tokenizer = new StringTokenizer(this.text, ".?!"); 
+        StringTokenizer tokenizer = new StringTokenizer(this.text, ".?!");
         ArrayList<String> sentences = tokenizerToList(tokenizer);
         for (int i = 0; i < sentences.size(); i++) {
             StringTokenizer tempTokenizer = new StringTokenizer(sentences.get(i), " ,.-:\";'");
@@ -48,13 +50,15 @@ public class TextParser implements TextOperations{
 
     /**
      * This method processes a list of file names,
-     * reads the content of each file, and converts the text into a list of sentences.
+     * reads the content of each file, and converts the text into a list of
+     * sentences.
      * 
      * @param fileNames An ArrayList of file names to be processed.
-     * @return An ArrayList of ArrayLists, where each inner ArrayList contains the words of a sentence.
+     * @return An ArrayList of ArrayLists, where each inner ArrayList contains the
+     *         words of a sentence.
      */
     @Override
-    public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames) { 
+    public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames) {
         ArrayList<ArrayList<String>> listOfLists = new ArrayList<ArrayList<String>>();
         for (int i = 0; i < fileNames.size(); i++) {
             TextParser tempParser = new TextParser(TextFileParser.readFile(fileNames.get(i)));
@@ -68,19 +72,19 @@ public class TextParser implements TextOperations{
 
     /**
      * This method takes a string and a delimiter,
-     * splits the string into tokens based on the delimiter and stores them in an ArrayList.
+     * splits the string into tokens based on the delimiter and stores them in an
+     * ArrayList.
      * 
-     * @param text The string to be tokenized.
+     * @param text  The string to be tokenized.
      * @param delim The delimiter used to split the string.
      * @return An ArrayList of String tokens.
      */
-    private ArrayList<String> tokenizerToList(StringTokenizer tokenizer){
+    private ArrayList<String> tokenizerToList(StringTokenizer tokenizer) {
         ArrayList<String> list = new ArrayList<String>(tokenizer.countTokens());
         while (tokenizer.hasMoreTokens()) {
             list.add(tokenizer.nextToken().toString().trim());
         }
-        return list;       
+        return list;
     }
 
-    
 }

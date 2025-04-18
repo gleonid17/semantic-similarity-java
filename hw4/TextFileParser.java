@@ -6,11 +6,12 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 
 /**
- * This class is responsible for reading a text file and returning its content as a string.
+ * This class is responsible for reading a text file and returning its content
+ * as a string.
  * It handles any IO exceptions that may occur during the file reading process.
  * 
- * @author George Leonidou and Andreas Kristian Mylonas    
- * @version 1.0 
+ * @author George Leonidou and Andreas Kristian Mylonas
+ * @version 1.0
  * @since 13/04/2025
  */
 public class TextFileParser extends TextParser {
@@ -31,6 +32,6 @@ public class TextFileParser extends TextParser {
             System.out.println("Error reading file.");
             return null;
         }
-        return contentBuilder.toString();   
+        return contentBuilder.toString();
     }
 }

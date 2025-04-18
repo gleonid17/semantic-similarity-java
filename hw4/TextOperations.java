@@ -13,9 +13,11 @@ import java.util.ArrayList;
 public interface TextOperations {
 
     /**
-     * Converts the text to a list of sentences, where each sentence is represented as a list of words.
+     * Converts the text to a list of sentences, where each sentence is represented
+     * as a list of words.
      * 
-     * @return The ArrayList of ArrayLists containing the words of each sentence of the text.
+     * @return The ArrayList of ArrayLists containing the words of each sentence of
+     *         the text.
      */
     public ArrayList<ArrayList<String>> convertTextToList();
 
@@ -24,7 +26,8 @@ public interface TextOperations {
      * where each sentence is represented as a list of words.
      * 
      * @param fileNames An ArrayList of file names to be processed.
-     * @return An ArrayList of ArrayLists containing the words of each sentence of the text.
+     * @return An ArrayList of ArrayLists containing the words of each sentence of
+     *         the text.
      */
     public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames);
 }

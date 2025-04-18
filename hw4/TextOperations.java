@@ -27,11 +27,4 @@ public interface TextOperations {
      * @return An ArrayList of ArrayLists containing the words of each sentence of the text.
      */
     public ArrayList<ArrayList<String>> getListFromFiles(ArrayList<String> fileNames);
-
-    /**
-     * Returns the number of sentences in the text.
-     * 
-     * @return The number of sentences in the text.
-     */
-    public Integer getNumberOfSentences();
 }

@@ -12,6 +12,7 @@ package hw4;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class TextFileReader {
     private String filename;
@@ -23,12 +24,16 @@ public class TextFileReader {
     public String readFile() {
         StringBuilder contentBuilder = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(this.filename))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
+            String line = reader.readLine();
+            while (line != null) {
                 contentBuilder.append(line);
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("File was not found or could not be opened.");
+            return null;
         } catch (IOException e) {
-            return "Error reading file: " + e.getMessage();
+            System.out.println("Error reading file.");
+            return null;
         }
         return contentBuilder.toString();   
     }

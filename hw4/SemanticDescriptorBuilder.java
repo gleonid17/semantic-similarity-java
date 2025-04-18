@@ -1,6 +1,7 @@
 package hw4;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * this class is a builder for the SemanticDescriptors class,

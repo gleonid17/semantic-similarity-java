@@ -13,7 +13,6 @@ import java.util.StringTokenizer;
  */
 public class TextParser implements TextOperations{
     private final String text;
-    private int numberOfSentences;
 
     /**
      * Constructor for the TextParser class,
@@ -23,10 +22,7 @@ public class TextParser implements TextOperations{
      */
     public TextParser(String text) {
         this.text = text.toLowerCase();
-        this.numberOfSentences = 0;
     }       
-
-    
 
     /**
      * This method converts the text into a list of sentences,
@@ -43,7 +39,6 @@ public class TextParser implements TextOperations{
             StringTokenizer tempTokenizer = new StringTokenizer(sentences.get(i), " ,.-:\";'");
             listOfLists.add(tokenizerToList(tempTokenizer));
         }
-        this.numberOfSentences = sentences.size();
         return listOfLists;
     }
 
@@ -64,24 +59,15 @@ public class TextParser implements TextOperations{
             /*
              * i suggest textParser be named to "parse" for simplicity and clarity.
              */
-            TextParser textParser = new TextParser(new TextFileReader(fileNames.get(i)).readFile());
-            ArrayList<ArrayList<String>> list = textParser.convertTextToList();
-            for (int j = 0; j < textParser.getNumberOfSentences(); j++) {
+            TextParser tempParser = new TextParser(new TextFileReader(fileNames.get(i)).readFile());
+            ArrayList<ArrayList<String>> list = tempParser.convertTextToList();
+            for (int j = 0; j < list.size(); j++) {
                 listOfLists.add(list.get(j));
             }
         }
-        this.numberOfSentences = listOfLists.size();   
         return listOfLists;
     }
-    /**
-     * This method returns the number of sentences in the text.
-     * 
-     * @return The number of sentences in the text.
-     */
-    public Integer getNumberOfSentences() {
-        return this.numberOfSentences;
-    }
-    
+
     /**
      * This method takes a string and a delimiter,
      * splits the string into tokens based on the delimiter and stores them in an ArrayList.

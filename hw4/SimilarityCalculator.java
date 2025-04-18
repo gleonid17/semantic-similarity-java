@@ -20,14 +20,24 @@ public abstract class SimilarityCalculator {
      * returns -1 if similarity could not be calculated.
      */
     public static double cosineSimilarity(HashMap<String, Integer> vec1, HashMap<String, Integer> vec2) {
+        if (vec1 == null || vec2 == null) {
+            return -1;
+        }
+        if (vec1.isEmpty() || vec2.isEmpty()) {
+            return -1;
+        }
         double dotPoroduct = 0;
+        double denominator = (calculateNorm(vec1) * calculateNorm(vec2));
+        if (denominator == 0) {
+            return -1;
+        }
         try {
             for (String key : vec1.keySet()) {
                 if (vec2.containsKey(key)) {
                     dotPoroduct += vec1.get(key) * vec2.get(key);
                 }
             }
-            return dotPoroduct / (calculateNorm(vec1) * calculateNorm(vec2));
+            return dotPoroduct / denominator;
         } catch (Exception e) {
             return -1;
         }

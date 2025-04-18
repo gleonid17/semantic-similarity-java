@@ -22,11 +22,11 @@ public class TextParser implements TextOperations {
      * @param text The text to be parsed.
      */
     public TextParser(String text) {
-        this.text = text.toLowerCase();
+        this.text = text; // .toLowerCase();
     }
 
     public TextParser() {
-        this("");
+        text = "";
     }
 
     /**
@@ -71,12 +71,9 @@ public class TextParser implements TextOperations {
     }
 
     /**
-     * This method takes a string and a delimiter,
-     * splits the string into tokens based on the delimiter and stores them in an
-     * ArrayList.
+     * This method converts a StringTokenizer object into an ArrayList of Strings.
      * 
-     * @param text  The string to be tokenized.
-     * @param delim The delimiter used to split the string.
+     * @param tokenizer The StringTokenizer object to be converted to a list.
      * @return An ArrayList of String tokens.
      */
     private ArrayList<String> tokenizerToList(StringTokenizer tokenizer) {

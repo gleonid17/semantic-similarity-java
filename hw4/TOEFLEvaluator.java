@@ -2,8 +2,21 @@ package hw4;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+/**
+ * we import the entire java.io package to use the BufferedReader and PrintWriter classes
+ * for reading from and writing to files respectively.
+ */
 import java.io.*;
 
+/**
+ * This class is responsible for evaluating the TOEFL test by comparing a word
+ * with a list of choices
+ * based on the semantic descriptors built from text previously parsed by the
+ * program,
+ * it uses the {@link SemanticDescriptors} to access the similarity scores of
+ * different
+ * words from said text.
+ */
 public class TOEFLEvaluator {
     private SemanticDescriptors map;
 
@@ -17,12 +30,13 @@ public class TOEFLEvaluator {
     }
 
     /**
-     * calls mostSimilarWord for each line in the file
-     * saves the answer given by method
-     * calculates the success rate of the algorithm
-     * creates an output text file with the results
+     * Calls {@link TOEFLEvaluator#mostSimilarWord(String, ArrayList)}
+     * for each line in the file,
+     * saves the answer given by method,
+     * calculates the success rate of the algorithm,
+     * creates an output text file with the results.
      * 
-     * @param fileName the name of the file to be processed
+     * @param fileName the name of the file with the questions and answers.
      * @return void
      */
     public void runSimilarityTest(String fileName) {
@@ -75,7 +89,7 @@ public class TOEFLEvaluator {
             totalQuestions++;
         }
         double successRate = (double) rightChoices / totalQuestions * 100;
-        fileOut.println("Success rate: " + successRate + "%");
+        fileOut.println("\nSuccess rate: " + successRate + "%");
         try {
             fileIn.close();
         } catch (IOException e) {
@@ -89,7 +103,7 @@ public class TOEFLEvaluator {
      * in relation to the parameter 'word'
      * 
      * @param word    word to be examined
-     * @param choices array of words to be compared with the word
+     * @param choices ArrayList of words to be compared with the word
      * @return the most similar word in the choices array
      */
     public String mostSimilarWord(String word, ArrayList<String> choices) {

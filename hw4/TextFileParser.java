@@ -18,7 +18,9 @@ public class TextFileParser extends TextParser {
 
     public static String readFile(String fileName) {
         StringBuilder contentBuilder = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
             String line = reader.readLine();
             while (line != null) {
                 contentBuilder.append(line);
@@ -31,6 +33,14 @@ public class TextFileParser extends TextParser {
         } catch (IOException e) {
             System.out.println("Error reading file.");
             return null;
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    System.out.println("Error closing file.");
+                }
+            }
         }
         return contentBuilder.toString();
     }

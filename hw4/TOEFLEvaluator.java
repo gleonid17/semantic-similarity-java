@@ -69,8 +69,14 @@ public class TOEFLEvaluator {
         while (line != null) {
             StringTokenizer lineTokens = new StringTokenizer(line, " ");
             if (lineTokens.countTokens() < 4) {
-                System.out.println("Error: line does not contain enough choices.");
-                return;
+                System.out.println("Error: line " + (totalQuestions + 1) + " does not contain enough choices.");
+                try {
+                    line = fileIn.readLine();
+                    continue;
+                } catch (IOException e) {
+                    System.out.println("Error reading file.");
+                    return;
+                }
             }
             String word = lineTokens.nextToken();
             String correctAnswer = lineTokens.nextToken();
@@ -79,12 +85,18 @@ public class TOEFLEvaluator {
                 String choice = lineTokens.nextToken();
                 choices.add(choice);
             }
-            fileOut.print("Question: " + totalQuestions + ": ");
+            fileOut.print("Question: " + (totalQuestions + 1) + ": ");
             writeQuestion(fileOut, word, choices);
             String algorithmAnswer = mostSimilarWord(word, choices);
             writeResult(fileOut, algorithmAnswer, correctAnswer);
             if (algorithmAnswer.equals(correctAnswer)) {
                 rightChoices++;
+            }
+            try {
+                line = fileIn.readLine();
+            } catch (IOException e) {
+                System.out.println("Error reading file.");
+                return;
             }
             totalQuestions++;
         }

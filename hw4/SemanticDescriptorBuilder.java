@@ -34,6 +34,7 @@ public class SemanticDescriptorBuilder extends SemanticDescriptors {
         HashMap<String, HashMap<String, Integer>> map = new HashMap<>();
         for (ArrayList<String> sentence : textArrayList) {
             for (String word : sentence) {
+                word = word.toLowerCase();
                 if (!map.containsKey(word))
                     map.put(word, new HashMap<String, Integer>());
                 calculateCoOccurance(map, sentence, word);
@@ -55,15 +56,15 @@ public class SemanticDescriptorBuilder extends SemanticDescriptors {
             String word) {
         HashMap<String, Integer> subMap = map.get(word);
         for (String word2 : sentence) {
+            word2 = word2.toLowerCase();
             if (word.equals(word2)) {
                 continue;
             }
-            if (subMap.containsKey(word2)) {
-                Integer count = subMap.get(word2);
-                subMap.put(word2, count + 1);
-            } else { // if this is the first encounter between word and word2
-                subMap.put(word2, 1);
+            if (!subMap.containsKey(word2)) { // if this is the first encounter between word and word2
+                subMap.put(word2, 0);
             }
+            Integer count = subMap.get(word2);
+            subMap.put(word2, count + 1);
         }
     }
 }

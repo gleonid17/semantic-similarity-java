@@ -68,8 +68,9 @@ public class TOEFLEvaluator {
         int rightChoices = 0;
         while (line != null) {
             StringTokenizer lineTokens = new StringTokenizer(line, " ");
-            if (lineTokens.countTokens() < 4) {
-                System.out.println("Error: line " + (totalQuestions + 1) + " does not contain enough choices.");
+            if (lineTokens.countTokens() < 3) {
+                fileOut.println("Question: " + (totalQuestions + 1) + "does not contain enough choices.");
+                totalQuestions++;
                 try {
                     line = fileIn.readLine();
                     continue;
@@ -100,7 +101,7 @@ public class TOEFLEvaluator {
             }
             totalQuestions++;
         }
-        double successRate = (double) rightChoices / totalQuestions * 100;
+        double successRate = (double) rightChoices / totalQuestions * 100.0;
         fileOut.println("\nSuccess rate: " + successRate + "%");
         try {
             fileIn.close();
@@ -119,9 +120,18 @@ public class TOEFLEvaluator {
      * @return the most similar word in the choices array
      */
     public String mostSimilarWord(String word, ArrayList<String> choices) {
+        if (choices.size() == 0) { // alreadt checked in runSimilarityTest
+            return "NotEnoughChoices";
+        }
+        if (!map.containsKey(word)) {
+            return "WordNotInTrainingFiles";
+        }
+        if (!choicesInTrainingFiles(choices)) {
+            return "ChoicesNotInTrainingFiles";
+        }
         double[] similarityScores = new double[choices.size()];
         for (int i = 0; i < choices.size(); i++) {
-            similarityScores[i] = map.getSimilarityScore(word, choices.get(i));
+            similarityScores[i] = map.getSemanticValue(word, choices.get(i));
         }
         double maxScore = -1;
         int maxIndex = -1;
@@ -134,8 +144,8 @@ public class TOEFLEvaluator {
                 maxIndex = i;
             }
         }
-        if (maxIndex == -1)
-            return "Could not generate an answer.";
+        // if (maxIndex == -1)
+        // return "Could not generate an answer.";
         return choices.get(maxIndex);
     }
 
@@ -151,5 +161,14 @@ public class TOEFLEvaluator {
         fileOut.println("Algorithm answer: " + algorithmAnswer);
         fileOut.println("Correct answer: " + correctAnswer);
         fileOut.println();
+    }
+
+    private boolean choicesInTrainingFiles(ArrayList<String> choices) {
+        for (String choice : choices) {
+            if (map.containsKey(choice)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

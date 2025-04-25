@@ -30,10 +30,10 @@ public class Coordinator {
         System.out.println("We will now proceed...");
         ArrayList<ArrayList<String>> listOfLists = (new TextParser()).getListFromFiles(fileNames);
         System.out.println("The text has been successfully parsed...");
-        System.out.println(listOfLists);
+        // System.out.println(listOfLists);
         SemanticDescriptors semanticDescriptors = SemanticDescriptorBuilder.listToMap(listOfLists);
         System.out.println("The semantic descriptors have been successfully created...");
-        System.out.println(semanticDescriptors);
+        // System.out.println(semanticDescriptors);
         System.out.println("Enter the name of the file with the similarity questions: ");
         String fileName = keyboard.next();
         System.out.println("You have entered the following file: " + fileName);

@@ -47,7 +47,7 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
         return 0;
     }
 
-    public double getSimilarityScore(String word1, String word2) {
+    public double getSemanticValue(String word1, String word2) {
         if (word1 == null || word2 == null) {
             return -1;
         }

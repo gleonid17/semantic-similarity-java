@@ -1,0 +1,121 @@
+Question: 1: guards:
+           cats
+       curtains
+         people
+Algorithm answer: people
+Correct answer: people
+
+Question: 2: feline:
+            dog
+            cat
+          horse
+Algorithm answer: dog
+Correct answer: cat
+
+Question: 3: happy:
+    sedimentary
+     delightful
+            sad
+Algorithm answer: sad
+Correct answer: delightful
+
+Question: 4: shouting:
+      screaming
+         crying
+     whispering
+Algorithm answer: whispering
+Correct answer: screaming
+
+Question: 5: critical:
+    importantly
+      important
+    unimportant
+Algorithm answer: important
+Correct answer: important
+
+Question: 6: loved:
+          liked
+          hated
+        blessed
+         looked
+        enjoyed
+         hatred
+         bottle
+Algorithm answer: liked
+Correct answer: liked
+
+Question: 7: solely:
+           only
+         merely
+            cat
+Algorithm answer: merely
+Correct answer: only
+
+Question: 8: delicious:
+         flavor
+          tasty
+          meaty
+Algorithm answer: flavor
+Correct answer: tasty
+
+Question: 9: vast:
+            big
+         narrow
+           huge
+Algorithm answer: big
+Correct answer: big
+
+Question: 10: clarify:
+        confuse
+        explain
+            die
+Algorithm answer: explain
+Correct answer: explain
+
+Question: 11: run:
+           walk
+         sprint
+Algorithm answer: walk
+Correct answer: sprint
+
+Question: 12: quiet:
+        whisper
+Algorithm answer: whisper
+Correct answer: whisper
+
+Question: 13: watch:
+           look
+        observe
+            eat
+          drink
+          sleep
+           live
+          laugh
+           love
+Algorithm answer: look
+Correct answer: look
+
+Question: 14: quick:
+           slow
+           fast
+         speedy
+      shruberry
+Algorithm answer: slow
+Correct answer: fast
+
+Question: 15: unsure:
+      uncertain
+    questioning
+         afraid
+Algorithm answer: WordNotInTrainingFiles
+Correct answer: WordNotInTrainingFiles
+
+Question: 16: uncertain:
+         unsure
+      flavorful
+    jinglebells
+Algorithm answer: ChoicesNotInTrainingFiles
+Correct answer: ChoicesNotInTrainingFiles
+
+
+Success rate: 56.25%

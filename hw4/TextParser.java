@@ -22,7 +22,7 @@ public class TextParser implements TextOperations {
      * @param text The text to be parsed.
      */
     public TextParser(String text) {
-        this.text = text; // .toLowerCase();
+        this.text = text.toLowerCase();
     }
 
     public TextParser() {

@@ -12,32 +12,44 @@ import java.util.ArrayList;
  */
 public class Coordinator {
     public static void main(String[] args) {
-        if (args.length < 2){
-            System.out.println("Correct input example: java Coordinator <textFile1> <textFile2> ... <similarityQuestionsFile>");
+        if (args.length < 2) {
+            System.out.println(
+                    "Correct input example: java Coordinator <similarityQuestionsFile> <textFile1> <textFile2> ...");
             System.out.println("Please provide at least one text file and one similarity questions file.");
             return;
         }
         System.out.println("Program started...");
-        System.out.println("Please enter the names of the files you'd like our program to process separated by spaces.");
-        System.out.println("IMPORTANT: The files should be in the same directory as this program and be sure to include their extensions.");
-        System.out.println("Type 'end' when you are done entering file names.");
-        String similarityQuestionsFile = args[args.length - 1];
+        String similarityQuestionsFile = args[0];
         ArrayList<String> fileNames = new ArrayList<String>();
-        for (int i = 0; i < args.length - 1; i++) {
+        for (int i = 1; i < args.length; i++) {
             fileNames.add(args[i]);
         }
         System.out.println("You have entered the following files: " + fileNames);
         System.out.println("The similarity questions file is: " + similarityQuestionsFile);
         System.out.println("We will now proceed...");
-        ArrayList<ArrayList<String>> listOfLists = (new TextParser()).getListFromFiles(fileNames);
+        ArrayList<ArrayList<String>> listOfLists = null;
+        try {
+            listOfLists = (new TextParser()).getListFromFiles(fileNames);
+        } catch (Exception e) {
+            System.out.println("An error occurred while parsing the text files: " + e.getMessage());
+            return;
+        }
         System.out.println("The text has been successfully parsed...");
-        // System.out.println(listOfLists);
-        SemanticDescriptors semanticDescriptors = SemanticDescriptorBuilder.listToMap(listOfLists);
+        SemanticDescriptors semanticDescriptors = null;
+        try {
+            semanticDescriptors = SemanticDescriptorBuilder.listToMap(listOfLists);
+        } catch (Exception e) {
+            System.out.println("An error occurred while creating semantic descriptors: " + e.getMessage());
+            return;
+        }
         System.out.println("The semantic descriptors have been successfully created...");
-        // System.out.println(semanticDescriptors);
-        System.out.println("Enter the name of the file with the similarity questions: ");
         TOEFLEvaluator evaluator = new TOEFLEvaluator(semanticDescriptors);
-        evaluator.runSimilarityTest(similarityQuestionsFile);
+        try {
+            evaluator.runSimilarityTest(similarityQuestionsFile);
+        } catch (Exception e) {
+            System.out.println("An error occurred while running the similarity test: " + e.getMessage());
+            return;
+        }
         System.out.println("The results have successfully been written to the file 'Results.txt'.");
         System.out.println("Terminating program...");
     }

@@ -136,16 +136,11 @@ public class TOEFLEvaluator {
         double maxScore = -1;
         int maxIndex = -1;
         for (int i = 0; i < similarityScores.length; i++) {
-            if (similarityScores[i] == 1.0) {
-                return choices.get(i);
-            }
             if (similarityScores[i] > maxScore) {
                 maxScore = similarityScores[i];
                 maxIndex = i;
             }
         }
-        // if (maxIndex == -1)
-        // return "Could not generate an answer.";
         return choices.get(maxIndex);
     }
 

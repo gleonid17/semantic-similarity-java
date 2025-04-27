@@ -62,7 +62,4 @@ public class SemanticDescriptors extends HashMap<Object, Object> {
         HashMap<String, Integer> vec2 = map.get(word2);
         return SimilarityCalculator.cosineSimilarity(vec1, vec2);
     }
-
-    // add more methods if needed
-
 }

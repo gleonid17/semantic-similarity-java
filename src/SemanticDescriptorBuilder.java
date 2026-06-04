@@ -1,8 +1,3 @@
-package hw4;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
 /**
  * this class is a builder for the SemanticDescriptors class,
  * it is used solely to convert a list of text into a map of semantic
@@ -12,8 +7,11 @@ import java.util.HashMap;
  * 
  * * @author George Leonidou and Andreas Kristian Mylonas
  * * @since 17/04/2025
- * * @see SemanticDescriptors
  */
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class SemanticDescriptorBuilder extends SemanticDescriptors {
 
     /**
@@ -37,7 +35,7 @@ public class SemanticDescriptorBuilder extends SemanticDescriptors {
                 word = word.toLowerCase();
                 if (!map.containsKey(word))
                     map.put(word, new HashMap<String, Integer>());
-                calculateCoOccurance(map, sentence, word);
+                calculateCoOccurrence(map, sentence, word);
             }
         }
         return new SemanticDescriptors(map);
@@ -52,7 +50,7 @@ public class SemanticDescriptorBuilder extends SemanticDescriptors {
      * @param sentence the sentence we are examining
      * @param word     the word we are examining
      */
-    private static void calculateCoOccurance(HashMap<String, HashMap<String, Integer>> map, ArrayList<String> sentence,
+    private static void calculateCoOccurrence(HashMap<String, HashMap<String, Integer>> map, ArrayList<String> sentence,
             String word) {
         HashMap<String, Integer> subMap = map.get(word);
         for (String word2 : sentence) {

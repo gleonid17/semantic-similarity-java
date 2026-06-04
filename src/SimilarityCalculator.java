@@ -1,10 +1,7 @@
-package hw4;
-
 /**
  * This class is a Calculator for all the equations that are needed to Calculate the similarity between two vectors. 
  * 
  * @author George Leonidou and Andreas Kristian Mylonas
- * @version 1.0
  * @since 13/04/2025
  */
 
@@ -27,7 +24,7 @@ public abstract class SimilarityCalculator {
         if (vec1.isEmpty() || vec2.isEmpty()) {
             return -1;
         }
-        double dotPoroduct = 0;
+        double dotProduct = 0;
         double denominator = (calculateNorm(vec1) * calculateNorm(vec2));
         if (denominator == 0) {
             return -1;
@@ -35,10 +32,10 @@ public abstract class SimilarityCalculator {
         try {
             for (String key : vec1.keySet()) {
                 if (vec2.containsKey(key)) {
-                    dotPoroduct += vec1.get(key) * vec2.get(key);
+                    dotProduct += vec1.get(key) * vec2.get(key);
                 }
             }
-            return dotPoroduct / denominator;
+            return dotProduct / denominator;
         } catch (Exception e) {
             return -1;
         }

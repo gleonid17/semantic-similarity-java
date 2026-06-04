@@ -1,0 +1,18 @@
+# Java
+*.class
+
+# Generated output
+Results.txt
+
+# Backup / lock files
+*.~
+.LCK*
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+
+# macOS
+.DS_Store

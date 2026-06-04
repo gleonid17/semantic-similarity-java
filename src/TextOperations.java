@@ -1,13 +1,11 @@
-package hw4;
-
 /**
  * This interface defines the operations for text processing,
  * including converting text to a list of sentences and getting the number of sentences.
  * 
  * @author George Leonidou and Andreas Kristian Mylonas    
- * @version 1.0 
  * @since 13/04/2025
  */
+
 import java.util.ArrayList;
 
 public interface TextOperations {

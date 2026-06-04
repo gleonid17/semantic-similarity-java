@@ -1,7 +1,3 @@
-package hw4;
-
-import java.util.*;
-
 /**
  * This class is a model for semantic descriptors,
  * it extends the HashMap class so one can call the methods of HashMap
@@ -11,8 +7,10 @@ import java.util.*;
  * 
  * @author George Leonidou and Andreas Kristian Mylonas
  * @since 17/04/2025
- * @see HashMap
  */
+
+import java.util.*;
+
 public class SemanticDescriptors extends HashMap<Object, Object> {
     private HashMap<String, HashMap<String, Integer>> map;
 

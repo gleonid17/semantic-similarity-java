@@ -1,19 +1,17 @@
-package hw4;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.FileNotFoundException;
-
 /**
  * This class is responsible for reading a text file and returning its content
  * as a string.
  * It handles any IO exceptions that may occur during the file reading process.
  * 
  * @author George Leonidou and Andreas Kristian Mylonas
- * @version 1.0
  * @since 13/04/2025
  */
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class TextFileParser extends TextParser {
 
     public static String readFile(String fileName) {

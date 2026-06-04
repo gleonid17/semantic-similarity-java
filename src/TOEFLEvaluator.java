@@ -1,12 +1,14 @@
-package hw4;
-
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 /**
  * we import the entire java.io package to use the BufferedReader and PrintWriter classes
  * for reading from and writing to files respectively.
+ * 
+ * @author George Leonidou and Andreas Kristian Mylonas
+ * @since 13/04/2025
  */
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  * This class is responsible for evaluating the TOEFL test by comparing a word

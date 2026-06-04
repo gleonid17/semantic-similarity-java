@@ -1,17 +1,15 @@
-package hw4;
-
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
 /**
  * This class is a Parser for the text.
  * It implements the TextOperations interface and provides methods to convert
  * text to a list of sentences and words.
  * 
  * @author George Leonidou and Andreas Kristian Mylonas
- * @version 1.0
  * @since 13/04/2025
  */
+
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 public class TextParser implements TextOperations {
     private final String text;
 

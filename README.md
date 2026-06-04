@@ -325,7 +325,7 @@ Andreas Kristian Mylonas
 
 ## Academic Context
 
-This project was originally developed as part of a university assignment exploring semantic similarity, vector-space representations of language, and Natural Language Processing techniques for the course "EPL133", Object Oriented Programming.
+This project was originally developed as part of a university assignment exploring semantic similarity, vector-space representations of language, and Natural Language Processing techniques for the course EPL133: Object Oriented Programming.
 
 The repository has been cleaned up and preserved as a portfolio project demonstrating:
 

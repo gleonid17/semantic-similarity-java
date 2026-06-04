@@ -318,7 +318,7 @@ Current limitations include:
 
 ## Authors
 
-George Leonidou
+George Leonidou\
 Andreas Kristian Mylonas
 
 

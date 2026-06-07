@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 /**
  * This class is a Parser for the text.
  * It implements the TextOperations interface and provides methods to convert
@@ -6,9 +9,6 @@
  * @author George Leonidou and Andreas Kristian Mylonas
  * @since 13/04/2025
  */
-
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class TextParser implements TextOperations {
     private final String text;

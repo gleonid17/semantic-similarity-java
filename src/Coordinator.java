@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * This class is the main entry point for the program.
  * It is responsible for coordinating the execution of the program and handling
@@ -6,9 +8,6 @@
  * @author George Leonidou and Andreas Kristian Mylonas
  * @since 19/04/2025
  */
-
-import java.util.ArrayList;
-
 
 public class Coordinator {
     public static void main(String[] args) {

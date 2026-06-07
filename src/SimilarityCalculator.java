@@ -1,11 +1,11 @@
+import java.util.HashMap;
+
 /**
  * This class is a Calculator for all the equations that are needed to Calculate the similarity between two vectors. 
  * 
  * @author George Leonidou and Andreas Kristian Mylonas
  * @since 13/04/2025
  */
-
-import java.util.HashMap;
 
 public abstract class SimilarityCalculator {
     /**

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * this class is a builder for the SemanticDescriptors class,
  * it is used solely to convert a list of text into a map of semantic
@@ -8,9 +11,6 @@
  * * @author George Leonidou and Andreas Kristian Mylonas
  * * @since 17/04/2025
  */
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class SemanticDescriptorBuilder extends SemanticDescriptors {
 

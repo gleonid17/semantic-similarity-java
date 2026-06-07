@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * This class is responsible for reading a text file and returning its content
  * as a string.
@@ -6,11 +11,6 @@
  * @author George Leonidou and Andreas Kristian Mylonas
  * @since 13/04/2025
  */
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class TextFileParser extends TextParser {
 
